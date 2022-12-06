@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2592/2592317.png" />
+  
+
+    <title>Register Form</title>
+  </head>
+  <body>  <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
+    <title>Register Form</title>
+      <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+    const liffId = --[{Lift ID}]--;
+    liff.ready
+      .then(() => {
+        if (liff.isLoggedIn()) {
+          return liff.getProfile();
+        } else {
+          liff.login({
+            redirectUri: --[{web Api}]--,
+          });
+        }
+      })
+      .then((profile) => {
+        window.location.replace(
+          -[{Http Api}]--
+        )
+      })
+      .then(()=>{
+        return liff.openWindow({
+      url: -[{Register Form}]--,
+      external: false,
+        })
+      });
+    liff.init(
+      {
+        liffId: liffId,
+      },
+      () => {},
+      (err) => {
+        window.alert(err);
+      }
+    );
+  </script>
+  </body>
+</html>
